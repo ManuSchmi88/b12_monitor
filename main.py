@@ -4,6 +4,7 @@ import requests
 import time
 import os.path
 from os import mkdir as os_mkdir
+from os import getcwd as os_getcwd
 from datetime import datetime
 from selenium import webdriver
 from bs4 import BeautifulSoup
@@ -36,7 +37,9 @@ def get_current_peoplecount():
     options.add_argument('--ignore-certificate-errors')
     options.add_argument('--incognito')
     options.add_argument('--headless')
-    driver = webdriver.Chrome("./chromedriver", options=options)
+    current_path = os_getcwd()
+    driver_path = str(current_path + '/chromedriver')
+    driver = webdriver.Chrome(driver_path, options=options)
     
     #render the webpage headless and parse the source to beautiful soup
     driver.get(page_string)
