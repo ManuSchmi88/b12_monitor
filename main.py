@@ -15,7 +15,7 @@ def create_folder_structure():
         print('data folder exists already. skipping...')
     else:
         os_mkdir('data')
-    weekdays = ['mon', 'tue', 'wen', 'thu', 'fri', 'sat', 'sun']
+    weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
     for day in weekdays:
         path = os.path.join('data',day)
         if os.path.isdir(path) == True: 
