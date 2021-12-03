@@ -2,6 +2,8 @@
 
 import requests
 import time
+import os.path
+from os import mkdir as os_mkdir
 from datetime import datetime
 from selenium import webdriver
 from bs4 import BeautifulSoup
@@ -68,10 +70,6 @@ def write_to_file(results):
 def go_to_sleep(sleep_timer):
     #waits the specified amount of time
     time.sleep(sleep_timer)
-    
-def create_folder_structure():
-    #checks if the data/$WEEKDAY folders exists
-    #if not, creates them
     
 
 def main():
