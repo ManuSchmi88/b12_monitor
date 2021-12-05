@@ -77,9 +77,13 @@ def go_to_sleep(sleep_timer):
 
 def main():
     create_folder_structure()
-    while True: 
-        b12_results = get_current_peoplecount()
-        write_to_file(b12_results)
+    while True:
+        try:
+            b12_results = get_current_peoplecount()
+            write_to_file(b12_results)
+        except:
+            print("something with the webpage was of. skipping...")
+            print("Time now is : " + datetime.now().strftime("%H:%M"))
         go_to_sleep(900) #15min * 60s = 900s
     
 if __name__ == "__main__":
