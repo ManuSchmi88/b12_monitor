@@ -15,6 +15,7 @@ from bs4 import BeautifulSoup
 def create_folder_structure():
     #checks if the data/$WEEKDAY folders exists
     #if not, creates them
+    print('Setting up necessary folder structure...')
     if os.path.isdir('data') == True:
         print('data folder exists already. skipping...')
     else:
