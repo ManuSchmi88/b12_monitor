@@ -121,6 +121,7 @@ def create_output_figure(daily_data, opening, closing, output_fig):
     ax1.plot(time_string, people, 'r', linewidth = 2)
     plt.gcf()
     plt.savefig(output_fig)
+    plt.close()
         
 def go_to_sleep(sleep_timer):
     #waits the specified amount of time
