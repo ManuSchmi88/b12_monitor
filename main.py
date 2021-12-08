@@ -15,7 +15,6 @@ from bs4 import BeautifulSoup
 def create_folder_structure():
     #checks if the data/$WEEKDAY folders exists
     #if not, creates them
-    print('Setting up necessary folder structure...')
     if os.path.isdir('data') == True:
         print('data folder exists already. skipping...')
     else:
@@ -118,8 +117,13 @@ def create_output_figure(daily_data, opening, closing, output_fig):
     ax1.set_ylabel("Personen", fontsize = 20)
     ax1.set_xlabel("Uhrzeit", fontsize = 20)
     ax1.set_yticks(np.arange(0,110,10))
-    ax1.set_ylim([0,105])
+    ax1.set_ylim([0,100])
+    ax1.set_xlim([0,80])
+    ax1.tick_params(axis='x', labelrotation = 45)
     ax1.plot(time_string, people, 'r', linewidth = 2)
+    ax1.plot(time_string, people, 'r', linewidth = 2)
+    for label in ax1.xaxis.get_ticklabels()[::2]:
+        label.set_visible(False)
     plt.gcf()
     plt.savefig(output_fig)
     plt.close()
@@ -139,7 +143,7 @@ def main():
             print("something with the webpage was off.. skipping...")
         create_output_figure(path_to_current_file('text'),930, 2200,'today.png')
         create_output_figure(path_to_current_file('text'),930, 2200,path_to_current_file('plot'))
-        go_to_sleep(10) #15min * 60s = 900s
+        go_to_sleep(600) #15min * 60s = 900s
     
 if __name__ == "__main__":
     main()
